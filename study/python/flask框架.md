@@ -106,15 +106,15 @@ def page_not_found(error):
 | PUT    | 用上传的内容替换目标资源的所有当前表示                       |
 | DELETE | 删除由URL给出的目标资源的所有当前表示                        |
 
-## 6、全局对象request
+## 7、全局对象request
 
-| 属性    | 备注                                      |
-| ------- | ----------------------------------------- |
-| method  | 获取请求方法                              |
-| form    | 获取form表单数据，若无此参数则容易返回400 |
-| args    | 获取url上的参数                           |
-| files   | 获取上传的文件                            |
-| cookies | 获取cookies                               |
+| 属性    | 备注                                                |
+| ------- | --------------------------------------------------- |
+| method  | 获取请求方法                                        |
+| form    | 字典对象，获取form表单数据，若无此参数则容易返回400 |
+| args    | 获取url上?后的参数                                  |
+| files   | 获取上传的文件                                      |
+| cookies | 保存Cookie名称和值的字典对象                        |
 
 ```python
 from flask import request
@@ -150,7 +150,7 @@ with app.request_context(environ):  # 把整个 WSGI 环境传递给 request_con
     assert request.method == 'POST'
 ```
 
-## 7、渲染模版
+## 8、渲染模版
 
 ```python
 from flask import render_template
